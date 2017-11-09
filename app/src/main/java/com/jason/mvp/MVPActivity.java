@@ -1,13 +1,13 @@
 package com.jason.mvp;
 
 import android.app.ProgressDialog;
-import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.jason.mvp.base.BaseActivity;
 import com.jason.mvp.core.LoginContract;
+import com.jason.mvp.core.LoginModel;
 import com.jason.mvp.core.LoginPresenter;
 import com.jason.mvx.R;
 
@@ -19,16 +19,12 @@ import butterknife.OnClick;
  * Created by JiaBo on 2017/11/8.
  */
 
-public class MVPActivity extends BaseActivity<LoginPresenter, com.jason.mvp.core.LoginModel> implements LoginContract.View {
+public class MVPActivity extends BaseActivity<LoginPresenter, LoginModel> implements LoginContract.View {
 
     @BindView(R.id.edit_name)
     EditText editName;
     @BindView(R.id.edit_pwd)
     EditText editPwd;
-    @BindView(R.id.btn_login)
-    AppCompatButton btnLogin;
-    @BindView(R.id.btn_clear)
-    AppCompatButton btnClear;
 
     private ProgressDialog progressDialog;
 

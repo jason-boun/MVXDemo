@@ -14,21 +14,21 @@ import android.widget.Toast;
  */
 
 public class LoginViewModel {
+
     private Context mContext;
     private ProgressDialog progressDialog;
     private LoginModel loginModel;
 
-    public LoginViewModel(Context context, LoginModel userLoginModel) {
+    public LoginViewModel(Context context, LoginModel loginModel) {
         this.mContext = context;
-        this.loginModel = userLoginModel;
+        this.loginModel = loginModel;
         progressDialog = new ProgressDialog(mContext);
-        progressDialog.setMessage("登陆中,请稍后...");
+        progressDialog.setMessage("登录中,请稍后...");
         progressDialog.setCancelable(false);
     }
 
-
     /**
-     * 登陆方法
+     * 登录方法
      */
     public void login() {
         if (TextUtils.isEmpty(loginModel.getUserName()) || TextUtils.isEmpty(loginModel.getPassWord())) {
@@ -38,7 +38,6 @@ public class LoginViewModel {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
                     if ("dji".equals(loginModel.getUserName().toString().trim()) && "123".equals(loginModel.getPassWord().toString().trim())) {
                         Toast.makeText(mContext, "登录成功", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
@@ -51,7 +50,6 @@ public class LoginViewModel {
                 }
             }, 2000);
         }
-
     }
 
     public void clear() {
@@ -61,7 +59,9 @@ public class LoginViewModel {
 
     }
 
-    //用户名变化监听
+    /**
+     * 用户名变化监听
+     */
     public TextWatcher userNameWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -79,7 +79,10 @@ public class LoginViewModel {
             loginModel.setUserName(editable.toString());
         }
     };
-    //密码变化监听
+
+    /**
+     * 密码变化监听
+     */
     public TextWatcher passWordWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

@@ -19,16 +19,14 @@ public class MVVMActivity extends AppCompatActivity {
         ActivityMvvmBinding activityMvvmBinding = DataBindingUtil.setContentView(this, R.layout.activity_mvvm);
         setTitle("MVVM-Demo");
 
-        LoginModel userLoginModel = new LoginModel();
-        userLoginModel.setUserName("");
-        userLoginModel.setPassWord("");
-        userLoginModel.setUserPhoto("http://i.dimg.cc/6f/65/e5/0a/35/f4/97/64/4f/93/d1/0d/7a/f5/f9/10.jpg");
-        activityMvvmBinding.setUserLoginModel(userLoginModel);
+        LoginModel loginModel = new LoginModel();
+        loginModel.setUserName("");
+        loginModel.setPassWord("");
+        loginModel.setUserPhoto("http://i.dimg.cc/6f/65/e5/0a/35/f4/97/64/4f/93/d1/0d/7a/f5/f9/10.jpg");
+        activityMvvmBinding.setLoginModel(loginModel);
 
-        LoginViewModel loginViewModel = new LoginViewModel(this, userLoginModel);
+        LoginViewModel loginViewModel = new LoginViewModel(this, loginModel);
         activityMvvmBinding.setLoginViewModel(loginViewModel);
-
-
     }
 
 }

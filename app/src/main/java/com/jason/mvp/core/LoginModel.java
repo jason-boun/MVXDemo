@@ -14,9 +14,11 @@ import rx.Subscriber;
  */
 
 public class LoginModel implements LoginContract.Model {
+
     @Override
     public void login(final String name, final String pwd, final CallBack callBack) {
         Log.d("登录中", "登录中");
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -34,6 +36,7 @@ public class LoginModel implements LoginContract.Model {
 
     @Override
     public Observable<String> rxLogin(final String name, final String pwd) {
+
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
